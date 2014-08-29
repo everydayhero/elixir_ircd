@@ -1,0 +1,2 @@
+defmodule ElixirIrcd do
+end
