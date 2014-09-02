@@ -5,7 +5,8 @@ defmodule ElixirIrcd.Mixfile do
     [app: :elixir_ircd,
      version: "0.0.1",
      elixir: "~> 0.15.1",
-     deps: deps]
+     deps: deps,
+     escript: [main_module: ElixirIrcd]]
   end
 
   # Configuration for the OTP application

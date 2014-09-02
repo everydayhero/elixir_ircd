@@ -2,7 +2,19 @@
 
 This is an irc daemon written in elixir.
 
-Currently it does nothing whatsoever.
+Currently it pretends to bind to a port (but doesn't do anything of the sort).
+
+## Build
+
+    mix escript.build
+
+## Test
+
+    mix test
+
+## Run
+
+    ./elixir_ircd
 
 For reference, here are some links that specify the irc protocol:
 
