@@ -2,7 +2,15 @@
 
 This is an irc daemon written in elixir.
 
-Currently it pretends to bind to a port (but doesn't do anything of the sort).
+Currently it binds to a port.  Clients will receive a hard coded
+message.  Otherwise it just writes what the client sends to stdout.
+
+TODO:
+
+- disconnect when the client doesn't write anything
+- handle 'PASS serverpassword\r\n'
+- handle 'NICK nickname\r\n'
+- handle 'USER login 0 * realname\r\n'
 
 ## Build
 
