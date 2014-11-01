@@ -11,21 +11,22 @@ defmodule ElixirIrcd.Server do
     spawn(fn() -> do_server(socket) end)
     do_listen(listen_socket)
   end
- 
+
   defp do_server(socket) do
     :gen_tcp.send(socket, "NOTICE * :*** Checking Ident\n")
     do_listen_client(socket)
   end
 
   defp do_listen_client(socket) do
-    case :gen_tcp.recv(socket, 0) do
+    case :gen_tcp.recv(socket, 0, 10000) do
       {:ok, data} ->
         IO.inspect data
         do_listen_client(socket)
- 
       {:error, :closed} ->
         IO.puts "socket closed"
         :ok
+      {:error, :timeout} ->
+        :gen_tcp.close(socket)
     end
   end
 end
